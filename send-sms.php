@@ -77,16 +77,18 @@ if (
 		//header("location:readmobilefile.php");
 
 	  }
-
-	$param['uname'] = "mohandemo";
-	$param['password'] = "123456";
-	$param['sender'] = "SMSOTP";
-	$param['receiver'] =getMobileNo($target);// "9405358276,9766747805,8983819899";
-	$param['route'] = "PSA";
-	$param['msgtype'] = "3";
+################################################ Manual configuration for designhost sms ##################################
+	$sms_url="";//domain with directroy path for designhost api.
+	$param['uname'] = ""; //Your user name from designhost api.
+	$param['password'] = "";//Your password for design host api.
+	$param['sender'] = "";//YOur api sender type.
+	$param['receiver'] =getMobileNo($target);// Your mobile number whom you want to send sms provide as string with comma.
+	$param['route'] = "";//Your route type with your plan.
+	$param['msgtype'] = "3"; //Message type for your sms.
 	$param['sms'] =$_POST['msg'];
-	$sms_url="http://103.231.43.206/index.php/Bulksmsapi/httpapi";
+	
 	$paramset=http_build_query($param);
+####################################### Manual configuration for designhost sms ends #################################
 	openurl($sms_url,$paramset);
 }
 ?>
